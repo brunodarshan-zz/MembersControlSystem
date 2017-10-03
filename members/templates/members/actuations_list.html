@@ -11,4 +11,23 @@
 {% bootstrap_messages %}
 
 {% block content %}
+	<div class="col-md-6">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Descrição</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for actuation in actuations %}
+					<tr>
+						<td>{{actuation.name}}</td>
+						<td>{{actuation.description}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}

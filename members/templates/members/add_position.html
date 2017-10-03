@@ -11,12 +11,20 @@
 {% bootstrap_messages %}
 
 {% block content %}
-	<form method="POST">
-		{% csrf_token %}
+	<div class="container form-group row center-block">
+		<div class="col-xs-7">
+			<form method="POST" class="form-group">
+				<fieldset>
+					<legend>Cadastro de Cargos</legend>
 
-		{{ form.as_p }}
+					{% csrf_token %}
 
-		<input type="submit" class="btn" value="Cadastrar">
-		<input type="submit" class="btn" value="Voltar">
-	</form>
+					{% bootstrap_form form %}
+
+					{% bootstrap_button "Cadastrar" button_type="submit" button_class="btn-default" %}
+					<a href="{% url 'dashboard' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default" %}</a>
+				</fieldset>
+			</form>
+		</div>
+	</div>
 {% endblock %}

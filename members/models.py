@@ -10,9 +10,9 @@ class Member(models.Model):
 	rg = models.CharField(max_length=20, null=False, verbose_name='RG')
 	position = models.ForeignKey('Position', null=False, verbose_name='Cargo')
 	instituition = models.ForeignKey('Instituition', null=False, verbose_name='Instituição')
-	actuation = models.ManyToManyField('Actuation', verbose_name='Atuação', help_text='Mantenha pressionado o Control (CTRL), ou Command no Mac, para selecionar mais de uma opção.')
+	actuations = models.ManyToManyField('Actuation', verbose_name='Atuações', help_text='Mantenha pressionado o Control (CTRL), ou Command no Mac, para selecionar mais de uma opção.')
 	contact = models.CharField(max_length=11, null=False, verbose_name='Contato')
-	specialty = models.ManyToManyField('Specialty', verbose_name='Especialidade', help_text='Mantenha pressionado o Control (CTRL), ou Command no Mac, para selecionar mais de uma opção.')
+	specialties = models.ManyToManyField('Specialty', verbose_name='Especialidades', help_text='Mantenha pressionado o Control (CTRL), ou Command no Mac, para selecionar mais de uma opção.')
 	student_ifpi = models.BooleanField(default=False, verbose_name='Aluno do IFPI')
 	matriculation = models.CharField(max_length=12, blank=True, null=True, verbose_name='Matrícula', help_text='Se não for aluno do IFPI, deixe em branco.')
 	scholarship_holder = models.BooleanField(default=False, verbose_name='Bolsista')
@@ -30,8 +30,8 @@ class Member(models.Model):
 
 
 class Position(models.Model):
-	name = models.CharField(max_length=200, null=False)
-	description = models.TextField()
+	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
+	description = models.TextField(verbose_name='Descrição')
 
 
 	def register(self):
@@ -43,8 +43,8 @@ class Position(models.Model):
 
 
 class Instituition(models.Model):
-	name = models.CharField(max_length=200, null=False)
-	description = models.TextField()
+	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
+	description = models.TextField(verbose_name='Descrição')
 
 
 	def register(self):
@@ -56,8 +56,8 @@ class Instituition(models.Model):
 
 
 class Actuation(models.Model):
-	name = models.CharField(max_length=200, null=False)
-	description = models.TextField()
+	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
+	description = models.TextField(verbose_name='Descrição')
 
 
 	def register(self):
@@ -69,8 +69,8 @@ class Actuation(models.Model):
 
 
 class Specialty(models.Model):
-	name = models.CharField(max_length=200, null=False)
-	description = models.TextField()
+	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
+	description = models.TextField(verbose_name='Descrição')
 
 
 	def register(self):

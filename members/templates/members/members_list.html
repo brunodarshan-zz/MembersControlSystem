@@ -11,4 +11,46 @@
 {% bootstrap_messages %}
 
 {% block content %}
+	<div class="col-md-14">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>CPF</th>
+					<th>RG</th>
+					<th>Cargo</th>
+					<th>Instituição</th>
+					<th>Atuações</th>
+					<th>Contato</th>
+					<th>Especialidade</th>
+					<th>Aluno do IFPI</th>
+					<th>Matrícula</th>
+					<th>Bolsista</th>
+					<th>Ativo</th>
+					<th>Data de Entrada</th>
+					<th>Data de Saída</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for member in members %}
+					<tr>
+						<td>{{member.name}}</td>
+						<td>{{member.cpf}}</td>
+						<td>{{member.rg}}</td>
+						<td>{{member.position}}</td>
+						<td>{{member.instituition}}</td>
+						<td>{{member.actuations}}</td>
+						<td>{{member.specialties}}</td>
+						<td>{{member.student_ifpi}}</td>
+						<td>{{member.matriculation}}</td>
+						<td>{{member.scholarship_holder}}</td>
+						<td>{{member.active}}</td>
+						<td>{{member.entry_date}}</td>
+						<td>{{member.departure_date}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}
