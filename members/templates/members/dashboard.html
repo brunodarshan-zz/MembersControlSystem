@@ -11,4 +11,14 @@
 {% bootstrap_messages %}
 
 {% block content %}
+	<nav class="col-sm-3 dashboard" id="myScrollspy">
+		<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+			<li><a href="#" data-toggle="popover" data-html="true" data-content="Função ainda não implementada :("><span class="glyphicon glyphicon-search"></span> Buscar</a></li>
+			<li><a href="#" data-toggle="popover" data-content="Adicionar Instituições" data-html="true"><span class="glyphicon glyphicon-plus"></span> Adicionar</a></li>
+			<li><a href="#" data-toggle="popover" data-html="true"><span class="glyphicon glyphicon-eye-open"></span> Visualizar</a></li>
+		</ul>
+	</nav>
+
+	<a href="{% url 'add_member' %}"><span class="col-md-offset-1 dash-menu">Adicionar Membros</span></a>
+	<a href="{% url 'members_list' %}"><span class="col-md-offset-2 dash-menu">Ver Membros</span></a>
 {% endblock %}
