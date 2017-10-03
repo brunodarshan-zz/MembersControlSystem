@@ -14,5 +14,7 @@ urlpatterns = [
 	url(r'^positions/add_position/$', views.add_position, name='add_position'),
 	url(r'^actuations/add_actuation/$', views.add_actuation, name='add_actuation'),
 	url(r'^specialties/add_specialty/$', views.add_specialty, name='add_specialty'),
+	url(r'^extras/add_extras/$', views.add_extras, name='add_extras'),
+	url(r'^extras/view_extras/$', views.view_extras, name='view_extras'),
 	url(r'^about/$', views.about, name='about'),
 ]

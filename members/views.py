@@ -106,5 +106,14 @@ def add_specialty(request):
 
 	return render(request, 'members/add_specialty.html', {'form' : form})
 
+
+def add_extras(request):
+	return render(request, 'members/add_extras.html')
+
+
+def view_extras(request):
+	return render(request, 'members/view_extras.html')
+
+
 def about(request):
 	return render(request, 'members/about.html')
