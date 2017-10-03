@@ -1,0 +1,30 @@
+{% extends 'members/base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+	<div class="container form-group row">
+		<div class="col-xs-7">
+			<form method="POST" class="form-group">
+				<fieldset>
+					<legend>Cadastro de Membros</legend>
+
+					{% csrf_token %}
+
+					{% bootstrap_form form %}
+
+					{% bootstrap_button "Cadastrar" button_type="submit" button_class="btn-default" %}
+					<a href="{% url 'dashboard' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default" %}</a>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+{% endblock %}

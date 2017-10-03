@@ -1,0 +1,24 @@
+{% extends 'registration/base_login.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+    <div class="container">
+		<form method="POST" action="{% url 'login' %}" class="form-signin">
+			<h2 class="form-signin-heading">Login</h2>
+			{% csrf_token %}
+			{% bootstrap_form form %}
+
+			{% bootstrap_button "Login" button_type="submit" button_class="btn btn-lg btn-default btn-block" %}
+			<input type="hidden" name="next" value="{{ next }}">
+		</form>
+	</div>
+{% endblock %}

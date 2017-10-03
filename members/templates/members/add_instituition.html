@@ -1,0 +1,22 @@
+{% extends 'members/base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+
+		{{ form.as_p }}
+
+		<input type="submit" class="btn" value="Cadastrar">
+		<input type="submit" class="btn" value="Voltar">
+	</form>
+{% endblock %}

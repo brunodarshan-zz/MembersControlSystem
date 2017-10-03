@@ -1,0 +1,17 @@
+{% extends 'members/base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+	<h3 class="">Sobre</h3>
+	
+	<p>O MCS é um sistema simples para cadastro de membros em um laboratório, projeto final da disciplina Organização Sistemas e Métodos</p>
+{% endblock %}
