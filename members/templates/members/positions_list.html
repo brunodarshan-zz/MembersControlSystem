@@ -13,8 +13,10 @@
 {% block content %}
 	<div class="col-md-6">
 		<table class="table table-striped">
+			<caption>Cargos</caption>
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>Nome</th>
 					<th>Descrição</th>
 				</tr>
@@ -23,8 +25,9 @@
 			<tbody>
 				{% for position in positions %}
 					<tr>
-						<td>{{positions.name}}</td>
-						<td>{{positions.description}}</td>
+						<td>{{position.id}}</td>
+						<td>{{position.name}}</td>
+						<td>{{position.description}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

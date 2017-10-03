@@ -5,3 +5,7 @@ body {
 .nav-login .container-fluid .navbar-header .navbar-brand, .nav-login .container-fluid ul li a {
 	color: #fff;
 }
+
+div .back {
+	margin-left: 40px;
+}

@@ -11,11 +11,12 @@
 {% bootstrap_messages %}
 
 {% block content %}
-	<div class="col-md-6 centered">
+	<div class="col-md-6">
 		<table class="table table-striped">
 			 <caption>Instituições</caption>
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>Nome</th>
 					<th>Descrição</th>
 				</tr>
@@ -24,12 +25,13 @@
 			<tbody>
 				{% for instituition in instituitions %}
 					<tr>
+						<td>{{instituition.id}}</td>
 						<td>{{instituition.name}}</td>
 						<td>{{instituition.description}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
-		<a href="{% url 'dashboard' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default right" %}</a>
+		<a href="{% url 'dashboard' %}" class="back">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default right" %}</a>
 	</div>
 {% endblock %}
