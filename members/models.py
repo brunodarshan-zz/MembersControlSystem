@@ -18,7 +18,7 @@ class Member(models.Model):
 	scholarship_holder = models.BooleanField(default=False, verbose_name='Bolsista')
 	active = models.BooleanField(default=False, verbose_name='Ativo')
 	entry_date = models.DateField(blank=True, null=True, verbose_name='Data de Entrada')
-	departure_date = models.DateField(blank=True, verbose_name='Data de Saída')
+	departure_date = models.DateField(blank=True, null=True, verbose_name='Data de Saída')
 
 
 	def register(self):

@@ -8,28 +8,28 @@ def dashboard(request):
 
 
 def members_list(request):
-	members = Member.objects.all().order_by('name')
+	members = Member.objects.all().order_by('id')
 	return render(request, 'members/members_list.html', {'members' : members})
 
 
 def instituitions_list(request):
-	instituitions = Instituition.objects.all().order_by('name')
+	instituitions = Instituition.objects.all().order_by('id')
 	return render(request, 'members/instituitions_list.html', {'instituitions' : instituitions})
 
 
 def positions_list(request):
-	positions = Position.objects.all().order_by('name')
+	positions = Position.objects.all().order_by('id')
 	return render(request, 'members/positions_list.html', {'positions' : positions})
 
 
 def actuations_list(request):
-	actuations = Actuation.objects.all().order_by('name')
+	actuations = Actuation.objects.all().order_by('id')
 	return render(request, 'members/actuations_list.html', {'actuations' : actuations})
 
 
 def specialties_list(request):
-	specialties = Specialty.objects.all().order_by('name')
-	return render(request, 'members/specialties_list.html', {'specialty' : specialty})
+	specialties = Specialty.objects.all().order_by('id')
+	return render(request, 'members/specialties_list.html', {'specialties' : specialties})
 
 
 def add_member(request):
@@ -72,7 +72,7 @@ def add_position(request):
 			return redirect('positions_list')
 
 	else:
-		form = MemberForm()
+		form = PositionForm()
 
 	return render(request, 'members/add_position.html', {'form' : form})
 

@@ -31,9 +31,9 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					{% if user.is_authenticated %}
-						<a class="navbar-brand" href="{% url 'dashboard' %}">MCS - Members Control System</a>
+						<a class="navbar-brand" href="{% url 'dashboard' %}" title="Página inicial">MCS - Members Control System</a>
 					{% else %}
-						<a class="navbar-brand" href="/">MCS - Members Control System</a>
+						<a class="navbar-brand" href="/" title="Página inicial">MCS - Members Control System</a>
 					{% endif %}
 				</div>
 

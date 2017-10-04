@@ -65,7 +65,7 @@ div form h2 {
 	padding-top: 12px;
 }
 
-.add_extras:hover, .view_extras:hover, .dashboar:hover {
+.add_extras:hover, .view_extras:hover, .dashboard:hover {
 	background-color: #c1c1c1;
 } 
 
@@ -78,7 +78,11 @@ div form h2 {
 	padding-top: 12px;
 }
 
-.dashboard a, .dashboard a:hover, .add_extras a, .add_extras a:hover, .view_extras a, .view_extras a:hover  {
+.dashboard a, .dashboard a:hover, .dashboard a:active, .add_extras a, .add_extras a:hover, .add_extras a:active, .view_extras a, .view_extras a:hover, .view_extras a:active  {
 	color: #fff;
 	text-decoration: none;
+}
+
+.about {
+	padding-top: 40px;
 }
