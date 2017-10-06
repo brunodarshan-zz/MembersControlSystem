@@ -21,7 +21,7 @@
 			
 			<li><a href="{% url 'view_extras' %}" title="Clique para ver instituições, cargos, atuações e especialidades."><span class="glyphicon glyphicon-eye-open"></span> Visualizar</a></li>
 
-			<li><a href="{% url 'view_extras' %}" title="Essa função ainda não está implementada. :("><span class="glyphicon glyphicon-file"></span> Gerar Relatórios</a></li>
+			<li><a href="#" title="Essa função ainda não está implementada. :("><span class="glyphicon glyphicon-file"></span> Gerar Relatórios</a></li>
 		</ul>
 	</nav>
 	
@@ -29,7 +29,7 @@
 
 	<div class="container col-md-offset-4">
 		<div class="row">
-			<div class="col-md-3 dashboard"><a href="{% url 'add_member' %}">Adicionar Membros</a></div>
+			<div class="col-md-3 dashboard"><a href="{% url 'add_member' %}" title="Caso não haja instituições, atuações, cargos ou especialidades cadastradas, por favor cadastre antes de adicionar novos membros.">Adicionar Membros</a></div>
 			<div class="w-100"></div>
 			<div class="col dashboard"><a href="{% url 'members_list' %}">Ver Membros</a></div>
 		</div>

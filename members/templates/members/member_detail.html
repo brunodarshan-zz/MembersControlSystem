@@ -1,0 +1,64 @@
+{% extends 'members/base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{% block content %}
+	<div class="col-md-5 col-md-offset-4">
+		<fieldset>
+			<legend class="text-center">Detalhes</legend>
+
+			<p class="col-md-offset-1"><b>Nome: </b>{{ member.name }}</p>
+			<p class="col-md-offset-1"><b>CPF: </b>{{ member.cpf }}</p>
+			<p class="col-md-offset-1"><b>RG: </b>{{ member.rg }}</p>
+			<p class="col-md-offset-1"><b>Cargo: </b>{{ member.position }}</p>
+			<p class="col-md-offset-1"><b>Instituição: </b>{{ member.instituition }}</p>
+			<p class="col-md-offset-1"><b>Atuações: </b>{{ member.actuations }}</p>
+			<p class="col-md-offset-1"><b>Contato: </b>{{ member.contact }}</p>
+			<p class="col-md-offset-1"><b>Especialidades: </b>{{ member.specialties }}</p>
+
+			{% if member.student_ifpi is True %}
+				<p class="col-md-offset-1"><b>Aluno do IFPI? </b>Sim</p>
+			{% else %}
+				<p class="col-md-offset-1"><b>Aluno do IFPI? </b>Não</p>
+			{% endif %}
+
+			{% if member.matriculation is None %}
+				<p class="col-md-offset-1"><b>Matrícula: </b>---</td></p>
+			{% else %}
+				<p class="col-md-offset-1"><b>Matrícula: </b>{{ member.matriculation }}</td></p>
+			{% endif %}
+			
+			{% if member.scholarship_holder is True %}
+				<p class="col-md-offset-1"><b>Bolsista? </b>Sim</p>
+			{% else %}
+				<p class="col-md-offset-1"><b>Bolsista? </b>Não</p>
+			{% endif %}
+			
+			{% if member.active is True %}
+				<p class="col-md-offset-1"><b>Ativo? </b>Sim</p>
+			{% else %}
+				<p class="col-md-offset-1"><b>Ativo? </b>Não</p>
+			{% endif %}
+
+			<p class="col-md-offset-1"><b>Data de Entrada: </b>{{ member.entry_date }}</p>
+			
+			{% if member.departure_date is None %}
+				<p class="col-md-offset-1"><b>Data de Saída: </b>---</p>
+			{% else %}
+				<p class="col-md-offset-1"><b>Data de Saída: </b>{{ member.departure_date }}</p>
+			{% endif %}
+		</fieldset>
+
+		<a href="{% url 'member_edit' pk=member.id %}" class="col-md-offset-1">{% bootstrap_button "Editar" button_type="button" button_class="btn-default" %}</a>
+		<a href="{% url 'member_remove' pk=member.id %}">{% bootstrap_button "Remover" button_type="button" button_class="btn-default" %}</a>
+		<a href="{% url 'members_list' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default" %}</a>
+	</div>
+{% endblock %}

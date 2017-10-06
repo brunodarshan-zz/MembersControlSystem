@@ -6,7 +6,7 @@ from django.core.validators import MinLengthValidator
 
 class Member(models.Model):
 	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
-	cpf = models.CharField(max_length=14, validators=[MinLengthValidator(11)], null=False, verbose_name='CPF')
+	cpf = models.CharField(max_length=14, validators=[MinLengthValidator(11)], null=False, verbose_name='CPF', help_text='Ex.: 111.111.111-11 ou 11111111111')
 	rg = models.CharField(max_length=20, null=False, verbose_name='RG')
 	position = models.ForeignKey('Position', null=False, verbose_name='Cargo')
 	instituition = models.ForeignKey('Instituition', null=False, verbose_name='Instituição')
@@ -17,7 +17,7 @@ class Member(models.Model):
 	matriculation = models.CharField(max_length=12, blank=True, null=True, verbose_name='Matrícula', help_text='Se não for aluno do IFPI, deixe em branco.')
 	scholarship_holder = models.BooleanField(default=False, verbose_name='Bolsista')
 	active = models.BooleanField(default=False, verbose_name='Ativo')
-	entry_date = models.DateField(blank=True, null=True, verbose_name='Data de Entrada')
+	entry_date = models.DateField(null=False, verbose_name='Data de Entrada')
 	departure_date = models.DateField(blank=True, null=True, verbose_name='Data de Saída')
 
 

@@ -19,6 +19,8 @@
 					<th>ID</th>
 					<th>Nome</th>
 					<th>Descrição</th>
+					<th>Editar</th>
+					<th>Remover</th>
 				</tr>
 			</thead>
 
@@ -28,11 +30,13 @@
 						<td>{{instituition.id}}</td>
 						<td>{{instituition.name}}</td>
 						<td>{{instituition.description}}</td>
+						<td><a href="{% url 'instituition_edit' pk=instituition.id %}">{% bootstrap_button "Editar" button_type="button" button_class="btn-default" %}</a></td>
+						<td><a href="{% url 'instituition_remove' pk=instituition.id %}">{% bootstrap_button "Remover" button_type="button" button_class="btn-default" %}</a></td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 		
-		<a href="{% url 'dashboard' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default col-md-offset-10" %}</a>
+		<a href="{% url 'add_instituition' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default col-md-offset-10" %}</a>
 	</div>
 {% endblock %}

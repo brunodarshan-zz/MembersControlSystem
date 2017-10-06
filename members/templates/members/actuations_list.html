@@ -19,6 +19,8 @@
 					<th>ID</th>
 					<th>Nome</th>
 					<th>Descrição</th>
+					<th>Editar</th>
+					<th>Remover</th>
 				</tr>
 			</thead>
 
@@ -28,6 +30,8 @@
 						<td>{{actuation.id}}</td>
 						<td>{{actuation.name}}</td>
 						<td>{{actuation.description}}</td>
+						<td><a href="{% url 'actuation_edit' pk=actuation.id %}" title="Editar">{% bootstrap_button "Editar" button_type="button" button_class="btn-default" %}</a></td>
+						<td><a href="{% url 'actuation_remove' pk=actuation.id %}" title="Remover">{% bootstrap_button "Remover" button_type="button" button_class="btn-default" %}</a></td>
 					</tr>
 				{% endfor %}
 			</tbody>

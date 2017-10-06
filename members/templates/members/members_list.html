@@ -11,51 +11,31 @@
 {% bootstrap_messages %}
 
 {% block content %}
-	<div class="col-md-14 table-responsive table-hover" id="table-member">
-		<table class="table table-striped table-condensed">
+	<div class="col-md-5 col-md-offset-4" id="table-member">
+		<table class="table table-striped table-hover table-condensed">
 			<caption class="text-center">Membros</caption>
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Nome</th>
-					<th>CPF</th>
-					<th>RG</th>
-					<th>Cargo</th>
-					<th>Instituição</th>
-					<th>Atuações</th>
-					<th>Contato</th>
-					<th>Especialidade</th>
-					<th>Aluno do IFPI</th>
-					<th>Matrícula</th>
-					<th>Bolsista</th>
-					<th>Ativo</th>
-					<th>Data de Entrada</th>
-					<th>Data de Saída</th>
+					<th>Editar</th>
+					<th>Remover</th>
 				</tr>
 			</thead>
 
 			<tbody>
 				{% for member in members %}
 					<tr>
-						<td>{{member.id}}</td>
-						<td>{{member.name}}</td>
-						<td>{{member.cpf}}</td>
-						<td>{{member.rg}}</td>
-						<td>{{member.position}}</td>
-						<td>{{member.instituition}}</td>
-						<td>{{member.actuations}}</td>
-						<td>{{member.specialties}}</td>
-						<td>{{member.student_ifpi}}</td>
-						<td>{{member.matriculation}}</td>
-						<td>{{member.scholarship_holder}}</td>
-						<td>{{member.active}}</td>
-						<td>{{member.entry_date}}</td>
-						<td>{{member.departure_date}}</td>
+						<td><a href="{% url 'member_detail' pk=member.id %}">{{member.id}}</a></td>
+						<td><a href="{% url 'member_detail' pk=member.id %}">{{member.name}}</a></td>
+						
+						<td><a href="{% url 'member_edit' pk=member.id %}">{% bootstrap_button "Editar" button_type="button" button_class="btn-default" %}</a></td>
+						<td><a href="{% url 'member_remove' pk=member.id %}">{% bootstrap_button "Remover" button_type="button" button_class="btn-default" %}</a></td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 		
-		<a href="{% url 'dashboard' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default col-md-offset-10" %}</a>
+		<a href="{% url 'add_member' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default col-md-offset-10" %}</a>
 	</div>
 {% endblock %}

@@ -86,3 +86,7 @@ div form h2 {
 .about {
 	padding-top: 40px;
 }
+
+div table tbody tr td a:hover {
+	text-decoration: none;
+}
