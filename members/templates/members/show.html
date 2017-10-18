@@ -1,14 +1,4 @@
-{% extends 'members/base.html' %}
-
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{% extends '../base.html' %}
 
 {% block content %}
 	<div class="col-md-5 col-md-offset-4">
@@ -35,13 +25,13 @@
 			{% else %}
 				<p class="col-md-offset-1"><b>Matrícula: </b>{{ member.matriculation }}</td></p>
 			{% endif %}
-			
+
 			{% if member.scholarship_holder is True %}
 				<p class="col-md-offset-1"><b>Bolsista? </b>Sim</p>
 			{% else %}
 				<p class="col-md-offset-1"><b>Bolsista? </b>Não</p>
 			{% endif %}
-			
+
 			{% if member.active is True %}
 				<p class="col-md-offset-1"><b>Ativo? </b>Sim</p>
 			{% else %}
@@ -49,7 +39,7 @@
 			{% endif %}
 
 			<p class="col-md-offset-1"><b>Data de Entrada: </b>{{ member.entry_date }}</p>
-			
+
 			{% if member.departure_date is None %}
 				<p class="col-md-offset-1"><b>Data de Saída: </b>---</p>
 			{% else %}

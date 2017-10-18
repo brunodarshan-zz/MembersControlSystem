@@ -1,14 +1,4 @@
-{% extends 'members/base.html' %}
-
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{% extends 'base.html' %}
 
 {% block content %}
 	<div class="col-md-6 col-md-offset-3">
@@ -36,7 +26,7 @@
 				{% endfor %}
 			</tbody>
 		</table>
-		
+
 		<a href="{% url 'add_instituition' %}">{% bootstrap_button "Voltar" button_type="button" button_class="btn-default col-md-offset-10" %}</a>
 	</div>
 {% endblock %}

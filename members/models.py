@@ -5,68 +5,62 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 class Member(models.Model):
+	matriculation = models.CharField(max_length=12, blank=True, null=True, verbose_name='Matrícula', help_text='Se não for aluno do IFPI, deixe em branco.')
 	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
 	cpf = models.CharField(max_length=14, validators=[MinLengthValidator(11)], null=False, verbose_name='CPF', help_text='Ex.: 111.111.111-11 ou 11111111111')
 	rg = models.CharField(max_length=20, null=False, verbose_name='RG')
+	contact = models.CharField(max_length=11, null=False, verbose_name='Contato')
+
+	# BooleanFields
+	student_ifpi = models.BooleanField(default=False, verbose_name='Aluno do IFPI')
+	scholarship_holder = models.BooleanField(default=False, verbose_name='Bolsista')
+	active = models.BooleanField(default=False, verbose_name='Ativo')
+
+	# ForeignKeys
 	position = models.ForeignKey('Position', null=False, verbose_name='Cargo')
 	instituition = models.ForeignKey('Instituition', null=False, verbose_name='Instituição')
 	actuations = models.ForeignKey('Actuation', verbose_name='Atuações', help_text='Mantenha pressionado o Control (CTRL), ou Command no Mac, para selecionar mais de uma opção.')
-	contact = models.CharField(max_length=11, null=False, verbose_name='Contato')
 	specialties = models.ForeignKey('Specialty', verbose_name='Especialidades', help_text='Mantenha pressionado o Control (CTRL), ou Command no Mac, para selecionar mais de uma opção.')
-	student_ifpi = models.BooleanField(default=False, verbose_name='Aluno do IFPI')
-	matriculation = models.CharField(max_length=12, blank=True, null=True, verbose_name='Matrícula', help_text='Se não for aluno do IFPI, deixe em branco.')
-	scholarship_holder = models.BooleanField(default=False, verbose_name='Bolsista')
-	active = models.BooleanField(default=False, verbose_name='Ativo')
-	entry_date = models.DateField(null=False, verbose_name='Data de Entrada')
-	departure_date = models.DateField(blank=True, null=True, verbose_name='Data de Saída')
 
+	# Datetime Fields
+	departure_date = models.DateField(blank=True, null=True, verbose_name='Data de Saída')
+	entry_date = models.DateField(null=False, verbose_name='Data de Entrada')
 
 	def register(self):
 		self.save()
 
-
 	def __str__(self):
 		return self.name
-
 
 class Position(models.Model):
 	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
 	description = models.TextField(verbose_name='Descrição')
 
-
 	def register(self):
 		self.save()
 
-
 	def __str__(self):
 		return self.name
-
 
 class Instituition(models.Model):
 	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
 	description = models.TextField(verbose_name='Descrição')
 
-
 	def register(self):
 		self.save()
 
-
 	def __str__(self):
 		return self.name
-
 
 class Actuation(models.Model):
 	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
 	description = models.TextField(verbose_name='Descrição')
 
-
 	def register(self):
 		self.save()
 
-
 	def __str__(self):
 		return self.name
-
 
 class Specialty(models.Model):
 	name = models.CharField(max_length=200, null=False, verbose_name='Nome')
@@ -75,7 +69,6 @@ class Specialty(models.Model):
 
 	def register(self):
 		self.save()
-
 
 	def __str__(self):
 		return self.name

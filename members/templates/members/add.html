@@ -1,21 +1,11 @@
-{% extends 'members/base.html' %}
-
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{% extends '../base.html' %}
 
 {% block content %}
-	<div class="container form-group">
+	<div class="container form-group form-add">
 		<div class="col-xs-7 col-md-offset-2">
 			<form method="POST" class="form-group">
 				<fieldset>
-					<legend>Cadastro de Cargos</legend>
+					<legend>Cadastro de Membros</legend>
 
 					{% csrf_token %}
 

@@ -1,14 +1,4 @@
-{% extends 'members/base.html' %}
-
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{% extends 'base.html' %}
 
 {% block content %}
 	<nav class="col-sm-3" id="myScrollspy">
@@ -18,7 +8,7 @@
 			<li><a href="{% url 'dashboard' %}" title="Dashboard"><span class="	glyphicon glyphicon-th"></span> Dashboard</a></li>
 
 			<li><a href="{% url 'add_extras' %}" title="Deseja adicionar mais instituições, cargos, atuações ou especialidades? Clique aqui."><span class="glyphicon glyphicon-plus"></span> Adicionar</a></li>
-			
+
 			<li><a href="{% url 'view_extras' %}" title="Clique para ver instituições, cargos, atuações e especialidades."><span class="glyphicon glyphicon-eye-open"></span> Visualizar</a></li>
 
 			<li><a href="#" title="Essa função ainda não está implementada. :("><span class="glyphicon glyphicon-file"></span> Gerar Relatórios</a></li>
@@ -29,11 +19,9 @@
 
 	<div class="container col-md-offset-4">
 		<div class="row">
-			<div class="col-md-3 view_extras"><a href="{% url 'instituitions_list' %}">Ver Instituições</a></div>
-			<div class="col view_extras"><a href="{% url 'positions_list' %}">Ver Cargos</a></div>
+			<div class="col-md-3 dashboard"><a href="{% url 'add_member' %}" title="Caso não haja instituições, atuações, cargos ou especialidades cadastradas, por favor cadastre antes de adicionar novos membros.">Adicionar Membros</a></div>
 			<div class="w-100"></div>
-			<div class="col-md-3 view_extras"><a href="{% url 'actuations_list' %}">Ver Atuações</a></div>
-			<div class="col view_extras"><a href="{% url 'specialties_list' %}">Ver Especialidades</a></div>
+			<div class="col dashboard"><a href="{% url 'members_list' %}">Ver Membros</a></div>
 		</div>
 	</div>
 {% endblock %}
